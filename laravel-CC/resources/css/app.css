@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+:root {
+    --bg-start: #fff6e6;
+    --bg-end: #ffe1d6;
+    --card: #ffffff;
+    --text: #2a1a16;
+    --muted: #6f5c56;
+    --brand: #c2552d;
+    --brand-strong: #9f3f1d;
+    --danger: #b42318;
+    --line: #f0d8cf;
+    --shadow: 0 12px 40px rgba(83, 30, 14, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 15% 15%, rgba(194, 85, 45, 0.17), transparent 35%),
+        radial-gradient(circle at 80% 12%, rgba(255, 128, 97, 0.2), transparent 38%),
+        linear-gradient(145deg, var(--bg-start), var(--bg-end));
+}
+
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.container {
+    width: min(880px, 100%);
+    background: color-mix(in oklab, var(--card) 92%, #fff3eb);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: clamp(20px, 2.2vw, 32px);
+}
+
+.page-title {
+    margin: 0 0 16px;
+    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+    letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+    color: var(--muted);
+    margin: 0 0 18px;
+}
+
+.note-container {
+    display: grid;
+    gap: 16px;
+}
+
+.notes {
+    display: grid;
+    gap: 12px;
+}
+
+.note {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.note-body {
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.note-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.new-note-btn,
+.note-edit-button,
+.note-delete-button,
+.btn {
+    appearance: none;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 120ms ease, background-color 120ms ease;
+}
+
+.new-note-btn,
+.note-edit-button,
+.btn-primary {
+    color: #fff;
+    background: linear-gradient(135deg, var(--brand), var(--brand-strong));
+}
+
+.new-note-btn:hover,
+.note-edit-button:hover,
+.btn-primary:hover {
+    transform: translateY(-1px);
+}
+
+.note-delete-button,
+.btn-danger {
+    color: #fff;
+    background: var(--danger);
+}
+
+.btn-secondary {
+    background: #fff4f0;
+    color: var(--text);
+    border: 1px solid var(--line);
+}
+
+.form-group {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    font: inherit;
+    color: var(--text);
+    background: #fff;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.detail-card {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+    padding: 16px;
+    line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+    .app-shell {
+        padding: 14px;
+    }
+
+    .container {
+        border-radius: 14px;
+        padding: 18px;
+    }
+
+    .new-note-btn,
+    .note-edit-button,
+    .note-delete-button,
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.alert {
+    background: #fff4f0;
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 14px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
